@@ -5,17 +5,17 @@
 
 # mapping of elixir versions to compatible erlang versions
 declare -A ex2erl
-ex2erl[1.0.0]=17.0
-ex2erl[1.1.0]=18.0
-ex2erl[1.2.0]=18.0
-ex2erl[1.3.0]=18.0
-ex2erl[1.4.0]=18.0
-ex2erl[1.5.0]=20.0
-ex2erl[1.6.0]=20.0
-ex2erl[1.7.0]=20.0
-ex2erl[1.8.0]=20.0
-ex2erl[1.9.0]=22.0
-ex2erl[1.9.1]=22.0
+# ex2erl[1.0.0]=17.0
+# ex2erl[1.1.0]=18.0
+# ex2erl[1.2.0]=18.0
+# ex2erl[1.3.0]=18.0
+# ex2erl[1.4.0]=18.0
+# ex2erl[1.5.0]=20.0
+# ex2erl[1.6.0]=20.0
+# ex2erl[1.7.0]=20.0
+# ex2erl[1.8.0]=20.0
+# ex2erl[1.9.0]=22.0
+# ex2erl[1.9.1]=22.0
 
 # sorted keys (elixir versions) of ex2erl associative array
 readarray -t exs < <(for ex in "${!ex2erl[@]}"; do echo "$ex"; done | sort)
@@ -44,9 +44,9 @@ main() {
     return 2
   fi
   echo "Done."
-  
+
   echo -n "Switching to elixir $exv ... "
-  kiex use "$exv" &> /dev/null 
+  kiex use "$exv" &> /dev/null
   if [[ $? -ne 0 ]]; then
     echo "Failed to use $exv"
     return 3
