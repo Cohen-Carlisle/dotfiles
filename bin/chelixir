@@ -1,0 +1,57 @@
+#! /usr/bin/env bash
+
+# this script wraps kiex and kerl to activate the correct elixir and erlang
+# versions in concert with each other and must be sourced, not executed
+
+# mapping of elixir versions to compatible erlang versions
+declare -A ex2erl
+ex2erl[1.0.0]=17.0
+ex2erl[1.1.0]=18.0
+ex2erl[1.2.0]=18.0
+ex2erl[1.3.0]=18.0
+ex2erl[1.4.0]=18.0
+ex2erl[1.5.0]=20.0
+ex2erl[1.6.0]=20.0
+ex2erl[1.7.0]=20.0
+ex2erl[1.8.0]=20.0
+ex2erl[1.9.0]=22.0
+ex2erl[1.9.1]=22.0
+
+# sorted keys (elixir versions) of ex2erl associative array
+readarray -t exs < <(for ex in "${!ex2erl[@]}"; do echo "$ex"; done | sort)
+
+main() {
+  # elixir version is first arg
+  exv="$1"
+
+  # erlang version from associative array or empty string
+  erlv="${ex2erl["$exv"]:-""}"
+
+  # check that elixir/erlang versions found
+  if [[ -z "$erlv" ]]; then
+    echo "Elixir version $exv not found."
+    echo "Elixir versions known the chelixir:"
+    for ex in "${exs[@]}"; do
+      echo "$ex"
+    done
+    return 1
+  fi
+
+  echo -n "Switching to erlang $erlv ... "
+  source "$(kerl path "$erlv")/activate"
+  if [[ $? -ne 0 ]]; then
+    echo "Failed to activate $erlv"
+    return 2
+  fi
+  echo "Done."
+  
+  echo -n "Switching to elixir $exv ... "
+  kiex use "$exv" &> /dev/null 
+  if [[ $? -ne 0 ]]; then
+    echo "Failed to use $exv"
+    return 3
+  fi
+  echo "Done."
+}
+
+main "$@"
