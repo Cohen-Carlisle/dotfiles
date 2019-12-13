@@ -118,12 +118,13 @@ fi
 
 # user defined
 
-[[ -r /usr/local/share/chruby/chruby.sh ]] && . /usr/local/share/chruby/chruby.sh
-[[ -r /usr/local/share/chruby/auto.sh ]] && . /usr/local/share/chruby/auto.sh
-# default ruby version defined in ~/.ruby-version
+maybe_source() {
+  test -r "$1" && source "$1"
+}
 
-[[ -r ~/kerl/22.0/activate ]] && . ~/kerl/22.0/activate
+maybe_source ~/.asdf/asdf.sh
+maybe_source ~/.asdf/completions/asdf.bash
 
-[[ -r ~/.kiex/scripts/kiex ]] && . ~/.kiex/scripts/kiex
+maybe_source ~/.config/exercism/exercism_completion.bash
 
-[[ -r ~/.config/exercism/exercism_completion.bash ]] && . ~/.config/exercism/exercism_completion.bash
+true
