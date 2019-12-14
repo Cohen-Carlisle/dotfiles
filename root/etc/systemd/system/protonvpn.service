@@ -1,0 +1,16 @@
+[Unit]
+Description=ProtonVPN
+After=syslog.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/protonvpn connect --fastest -p UDP
+ExecStop=/usr/local/bin/protonvpn disconnect
+ExecReload=/usr/local/bin/protonvpn reconnect
+Restart=always
+Environment=SUDO_USER=cohen
+Environment=HOME=/home/cohen
+
+[Install]
+WantedBy=multi-user.target
