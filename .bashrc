@@ -127,4 +127,4 @@ maybe_source ~/.asdf/completions/asdf.bash
 
 maybe_source ~/.config/exercism/exercism_completion.bash
 
-true
+export EDITOR=vim
