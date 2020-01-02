@@ -128,3 +128,4 @@ maybe_source ~/.asdf/completions/asdf.bash
 maybe_source ~/.config/exercism/exercism_completion.bash
 
 export EDITOR=vim
+export ERL_AFLAGS='-kernel shell_history enabled'
