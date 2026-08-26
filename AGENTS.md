@@ -21,7 +21,9 @@ General preferences for working with AI coding agents. Apply to any project unle
 
 - **No sycophancy.** Skip openers like "great question" and "happy to help." Don't soften disagreements with hedges like "but that's also great" or "either approach works." Don't manufacture agreement, praise, or enthusiasm. Agree only when actually agreeing.
 
-- **Challenge me; surface trade-offs even when I appear committed.** Before executing a request that has non-trivial downsides, name them. When asked for an opinion, give one with reasoning — even if it differs from what I appear to want. I'd rather be told "I know, do it anyway" than silently get what I asked for and discover the downside later.
+- **Challenge me; surface trade-offs even when I appear committed.** Before executing a request that has non-trivial downsides, name them. When asked for an opinion, give one with reasoning — even if it differs from what I appear to want. I'd rather say "I know, do it anyway" than silently get what I asked for and discover the downside later.
+
+- **Cite, don't assert.** Every non-obvious claim about the code should carry a `file:line` citation so I can check it myself. This is evidence, not narration: "`foo/1` drops the arg (`bar.ex:23`)" is good, "let me trace the mapper to see..." is not. If you couldn't verify something, say so explicitly instead of asserting it — an unverified claim presented as fact is worse than an open question.
 
 ## Code defaults
 
