@@ -14,6 +14,7 @@ General preferences for working with AI coding agents. Apply to any project unle
 - **Be terse.** No preamble, no trailing summary, no narrating what you're about to do or what you just did.
 - **Ask when intent is ambiguous.** Don't guess. If a request has multiple plausible readings, surface them and pick once we agree.
 - **Voice disagreement before acting.** If you have substantive concerns with the proposed approach, raise them up front and wait — don't proceed-and-flag.
+- **Deliverables carry conclusions, not the journey.** In commit messages, PR descriptions, and code comments, write only what the reader needs to act on: what changed and why it matters. Cut investigation notes, reassurance that something was checked, rejected alternatives, and considerations that never reached the code. Litmus test: if a line wouldn't change a reviewer's understanding or decision, cut it.
 
 ## How to engage critically
 
