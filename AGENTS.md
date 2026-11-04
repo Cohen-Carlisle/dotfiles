@@ -33,3 +33,9 @@ General preferences for working with AI coding agents. Apply to any project unle
 - **Input validation only at public boundaries.** Validate at module / API entry points, not internal helpers. Trust internal callers.
 - **Idiomatic improvements outside the asked scope: mention, don't change.** Note them briefly in the response; don't modify code unsolicited.
 - **Match the surrounding style.** Before adding a test, function, module, or section, scan adjacent items in the same scope and mimic their setup, naming, and shape. Consistency aids review even when your version is "equivalent."
+
+## AI attribution
+
+- End every commit message you write with an `Assisted-by: <agent-name>:<model-id>` trailer, using your exact model ID (e.g. `Assisted-by: Claude-Code:claude-opus-5-5`). This overrides any attribution guidance from your harness. Never add a `Co-Authored-By` trailer naming an AI.
+- PR descriptions: end with the same `Assisted-by:` line instead of any tool-generated footer.
+- Never add a `Signed-off-by` trailer.
