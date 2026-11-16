@@ -26,6 +26,11 @@ General preferences for working with AI coding agents. Apply to any project unle
 
 - **Cite, don't assert.** Every non-obvious claim about the code should carry a `file:line` citation so I can check it myself. This is evidence, not narration: "`foo/1` drops the arg (`bar.ex:23`)" is good, "let me trace the mapper to see..." is not. If you couldn't verify something, say so explicitly instead of asserting it — an unverified claim presented as fact is worse than an open question.
 
+## Shared workspace
+
+- **You are not the only actor.** I may edit files, run git commands, change PRs (mark ready, merge, edit), and update tickets while you work, and other agents may be running too. Re-check state before acting on it or reporting it — file contents, branch, working tree, PR, CI, ticket status — instead of relying on what you saw earlier.
+- **Changes you didn't make are deliberate.** Don't revert, overwrite, or stash them. If one conflicts with what you're doing, stop and ask.
+
 ## Code defaults
 
 - **Add tests when modifying logic.** Behavior changes need coverage. Skip for renames or comment-only edits.
